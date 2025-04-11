@@ -35,3 +35,61 @@ Vamos a diseñar una arquitectura conceptual para el sistema de seguimiento de p
 - **Latencia:** Minimizar el retardo para procesamiento en tiempo real
 - **Personas similares:** Distinguir entre personas con apariencia similar
 
+---
+---
+
+# Propuesta desarrollo modular (permita desarrollar por partes y luego unir todo)
+
+Para crear un sistema modular de seguimiento de personas con múltiples cámaras, hemos propuesta esta estructura:
+
+**Arquitectura modular:**
+
+1. **Módulo de entrada de video**
+   - Interfaz abstracta para fuentes de video
+   - Implementaciones: cámara IP, webcam, archivo de video
+   - API unificada que entrega fotogramas independientemente del origen
+
+2. **Módulo de detección de personas**
+   - Interfaz para diferentes detectores
+   - Implementaciones intercambiables: YOLO, SSD, Faster R-CNN
+   - Salida estandarizada: bounding boxes + scores
+
+3. **Módulo de extracción de características**
+   - Recorta regiones de interés y genera descriptores visuales
+   - Diferentes modelos de embedding para ReID
+   - Interfaz común de vector característico por persona
+
+4. **Módulo de seguimiento por cámara**
+   - Algoritmos de tracking independientes por vista
+   - Implementaciones: DeepSORT, ByteTrack, FairMOT
+   - API de trayectorias locales y gestión de IDs temporales
+
+5. **Módulo de re-identificación**
+   - Asociación de identidades entre cámaras
+   - Caché de descriptores de personas desaparecidas
+   - Matriz de similitud entre detecciones actuales y previas
+
+6. **Módulo de fusión multicámara**
+   - Integra información de todos los módulos anteriores
+   - Mantiene estado global de todas las personas rastreadas
+   - Genera IDs consistentes entre cámaras
+
+7. **Módulo de almacenamiento**
+   - Guarda trayectorias, identidades y metadata
+   - Opciones: memoria, base de datos, archivos JSON
+
+8. **Módulo de visualización**
+   - Renderiza estado actual del sistema
+   - Dashboard configurable
+
+**Beneficios de esta arquitectura:**
+
+- Puedes desarrollar y probar cada módulo independientemente
+- Fácil sustituir algoritmos (por ejemplo, probar diferentes detectores)
+- Escalable a más cámaras añadiendo instancias de módulos
+- Permite integración continua y pruebas unitarias por módulo
+
+
+
+
+
