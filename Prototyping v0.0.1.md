@@ -52,6 +52,26 @@ acceder al video en tiempo real desde tu cámara Wyze V3 y luego procesarlo como
 
 
 
+## PASARLO A UN MONITOR EN GODOT. :D !
+
+Para mostrar el video de tu cámara **Wyze V3** en **Godot**, puedes usar el nodo **VideoPlayer**, que permite reproducir archivos de video en formatos compatibles como **Ogg Theora**. Sin embargo, como la cámara transmite en tiempo real, necesitarás convertir el flujo de video a un formato que Godot pueda manejar.
+
+### Pasos para lograrlo:
+1. **Capturar el video en Python** usando `cv2.VideoWriter()` para guardarlo en un archivo `.ogv`.
+2. **Importar el video en Godot** y usar un nodo `VideoPlayer` para reproducirlo.
+3. **Actualizar el video dinámicamente** si quieres que se muestre en tiempo real.
+
+Si prefieres transmitir el video directamente, podrías explorar opciones como **RTSP** y usar un plugin en Godot para recibir el flujo de video.
+
+Aquí tienes un tutorial sobre cómo reproducir videos en **Godot**.
+
+
+        https://www.youtube.com/watch?v=FXzYjbX0nK0
+
+
+🚀🎮
+
+
 
 
 # The End.
