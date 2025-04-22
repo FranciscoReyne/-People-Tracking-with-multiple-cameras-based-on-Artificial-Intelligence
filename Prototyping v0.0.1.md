@@ -71,7 +71,94 @@ Aquí tienes un tutorial sobre cómo reproducir videos en **Godot**.
 
 🚀🎮
 
+### trasmitir directamente o en vivo.
 
+Para transmitir el video en vivo desde tu **Wyze V3** a **Godot**, puedes usar el protocolo **RTSP** (Real-Time Streaming Protocol), que permite enviar el video en tiempo real a otro software.
+
+### Pasos para lograrlo:
+1. **Habilitar RTSP en la cámara Wyze**:
+   - Ve a la app de Wyze.
+   - Activa **RTSP** en la configuración avanzada.
+   - Obtén la URL RTSP (ejemplo: `rtsp://usuario:contraseña@ip_de_la_cámara/live`).
+
+2. **Recibir el video en Python**:
+   - Usa **OpenCV** para capturar el stream RTSP.
+   - Convierte los fotogramas en una textura compatible con **Godot**.
+
+3. **Mostrar el video en Godot**:
+   - Usa un nodo `TextureRect` o `Sprite` para visualizar el video.
+   - Actualiza la textura en tiempo real con los fotogramas recibidos.
+
+Aquí tienes un tutorial sobre cómo ver la **Wyze Cam en una computadora** usando RTSP, lo cual puede ayudarte a integrarlo en **Godot** [aquí](https://aprendacctv.com/wyze-cam-en-una-computadora/). También puedes revisar cómo reproducir videos dentro de **Godot** en este [video](https://www.youtube.com/watch?v=FXzYjbX0nK0).
+
+#### El código. 🚀🎮📷
+
+Para transmitir el video en vivo desde tu **Wyze V3** a **Godot**, puedes usar el protocolo **RTSP** (Real-Time Streaming Protocol), que permite enviar el video en tiempo real a otro software.
+
+### Pasos para lograrlo:
+1. **Habilitar RTSP en la cámara Wyze**:
+   - Ve a la app de Wyze.
+   - Activa **RTSP** en la configuración avanzada.
+   - Obtén la URL RTSP (ejemplo: `rtsp://usuario:contraseña@ip_de_la_cámara/live`).
+
+2. **Recibir el video en Python**:
+   - Usa **OpenCV** para capturar el stream RTSP.
+   - Convierte los fotogramas en una textura compatible con **Godot**.
+
+3. **Mostrar el video en Godot**:
+   - Usa un nodo `TextureRect` o `Sprite` para visualizar el video.
+   - Actualiza la textura en tiempo real con los fotogramas recibidos.
+
+Aquí tienes un tutorial sobre cómo ver la **Wyze Cam en una computadora** usando RTSP, lo cual puede ayudarte a integrarlo en **Godot** [aquí](https://aprendacctv.com/wyze-cam-en-una-computadora/). También puedes revisar cómo reproducir videos dentro de **Godot** en este [video](https://www.youtube.com/watch?v=FXzYjbX0nK0).
+
+#### Transmitir el video en vivo de tu **Wyze V3** a **Godot** usando **RTSP** y OpenCV:
+
+### **1. Capturar el video desde la cámara Wyze**
+```python
+import cv2
+
+# URL RTSP de la cámara Wyze V3 (debes activarlo en la app de Wyze)
+rtsp_url = "rtsp://usuario:contraseña@ip_de_la_cámara/live"
+
+# Abrir el stream de video
+cap = cv2.VideoCapture(rtsp_url)
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Mostrar el video en una ventana de OpenCV
+    cv2.imshow("Wyze Cam Stream", frame)
+
+    # Guardar cada fotograma como imagen para enviarlo a Godot
+    cv2.imwrite("frame.jpg", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+```
+
+### **2. Mostrar el video en Godot**
+En **Godot**, puedes usar un nodo `TextureRect` para actualizar la imagen en tiempo real:
+
+```gdscript
+extends TextureRect
+
+func _process(delta):
+    var image = Image.new()
+    image.load("res://frame.jpg")  # Cargar el fotograma guardado
+    var texture = ImageTexture.new()
+    texture.create_from_image(image)
+    self.texture = texture  # Actualizar la textura en tiempo real
+```
+
+### **Pasos para hacerlo funcionar**
+1. **Habilita RTSP** en la app de Wyze y obtén la URL del stream.
+2. **Ejecuta el código en Python** para capturar el video.
+3. **En Godot**, usa el script para actualizar la textura con los fotogramas en tiempo real.
 
 
 # The End.
