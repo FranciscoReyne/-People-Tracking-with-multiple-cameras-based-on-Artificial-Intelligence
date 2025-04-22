@@ -36,6 +36,24 @@ Si necesitas más detalles, puedes revisar la documentación de la librería wyz
 
 
 
+33
+
+##  Ideas para acceder al video 
+
+acceder al video en tiempo real desde tu cámara Wyze V3 y luego procesarlo como desees. Algunas ideas de lo que podriamos hacer:
+    
+    - **Guardar fotogramas** en imágenes (`cv2.imwrite()`).
+    - **Grabar el video** en un archivo (`cv2.VideoWriter()`).
+    - **Aplicar visión artificial** con **OpenCV** o **YOLO** para detección de objetos.
+    - **Transmitir el video** en streaming a otro dispositivo o servidor.
+    - **Procesar eventos** con IA, como detección de movimiento o reconocimiento facial.
+
+🚀📷✨
+
+
+
+
+
 # The End.
 
 Love is all:
