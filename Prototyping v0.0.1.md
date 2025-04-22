@@ -3,9 +3,19 @@
 
 ## Wyze cam v3.
 
-### Yolo v8
+**Wyze** tiene una API que permite a los desarrolladores interactuar con sus dispositivos de manera programática. Sin embargo, la documentación oficial es limitada y no está completamente abierta al público. Aquí hay algunos puntos clave:
 
-### Python code.
+- **Autenticación**: Se requiere un **API Key**, que puedes generar en el [portal de desarrolladores de Wyze](https://developer-api-console.wyze.com/).
+- **Acceso a dispositivos**: Puedes obtener información sobre cámaras, sensores y otros dispositivos Wyze mediante llamadas REST.
+- **Eventos y control**: La API permite recuperar eventos y controlar ciertos aspectos de los dispositivos.
+- **Limitaciones**: Wyze no ofrece soporte oficial para desarrolladores externos, por lo que la documentación es escasa.
+
+Si quieres probar la API, puedes empezar creando un **API Key** siguiendo las instrucciones en [este enlace](https://support.wyze.com/hc/en-us/articles/16129834216731-Creating-an-API-Key). También puedes explorar discusiones en la comunidad de Wyze sobre cómo acceder a la API y sus funcionalidades.
+
+
+### Yolo v8 y API
+
+### Python code base.
     
     import os
     import cv2
