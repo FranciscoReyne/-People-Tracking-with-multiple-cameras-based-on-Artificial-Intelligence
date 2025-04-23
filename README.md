@@ -90,6 +90,9 @@ Para crear un sistema modular de seguimiento de personas con múltiples cámaras
 - Permite integración continua y pruebas unitarias por módulo
 
 
+###Otros recursos:
 
+- https://github.com/FranciscoReyne/Jupyter-Notebook-with-Webcam-Liveview_Wyze-Config
+- https://github.com/FranciscoReyne/Jupyter-Notebook-with-Webcam-Liveview_Wyze-Config
 
 
