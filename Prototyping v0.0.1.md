@@ -171,6 +171,18 @@ func _process(delta):
 3. **En Godot**, usa el script para actualizar la textura con los fotogramas en tiempo real.
 
 
+# TRAINING
+
+## Version inicial base para mascotas.
+
+Datasets recomendados para mascotas:
+
+        📌 Stanford Dogs Dataset – Contiene imágenes de más de 120 razas de perros. 
+        📌 Oxford-IIIT Pet Dataset – Incluye imágenes de gatos y perros con etiquetas de raza. 
+        📌 COCO Dataset – Tiene categorías de animales, incluyendo perros y gatos. 
+        📌 Imagenet Animals – Un subconjunto de Imagenet con imágenes de distintas especies.
+
+
 # The End.
 
 Love is all:
